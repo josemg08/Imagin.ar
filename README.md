@@ -1,2 +1,0 @@
-# Imagin.ar
-Imagin.ar

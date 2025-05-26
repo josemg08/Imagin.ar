@@ -56,17 +56,19 @@
             color: #fff;
             text-decoration: none;
             font-size: 1.1em;
-            font-weight: 500;
+            font-weight: bold;
             letter-spacing: 1px;
             transition: color 0.2s;
+            font-family: 'Pacifica Condensed', 'Helvetica Neue', Arial, sans-serif;
+            text-transform: none;
         }
 
         .navbar a:hover {
-            color: #ffd700;
+            color: #0080ff;
         }
 
         .banner {
-            width: 100vw;
+            /* Remove width: 100vw; */
             background: #000;
             display: flex;
             justify-content: center;
@@ -78,39 +80,34 @@
         }
 
         .banner-img {
-            width: 100vw;
-            max-width: 100vw;
+            display: block;
+            max-width: 100%;
             height: auto;
             max-height: 90vh;
             min-height: 400px;
-            display: block;
             object-fit: contain;
             background: #000;
             margin: 0 auto;
         }
 
         .image-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
-            padding: 0 5vw 48px 5vw;
-            z-index: 3;
-            position: relative;
+            display: flex;
+            width: 100vw;
+            margin: 0;
+            padding: 0;
             background: #000;
-            margin-top: 0;
         }
 
         .image-grid img {
-            width: 100%;
-            height: 320px;
+            flex: 1 1 0;
+            width: 0;
+            height: auto;
+            display: block;
             object-fit: cover;
-            border-radius: 16px;
-            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
-            transition: transform 0.2s;
-        }
-
-        .image-grid img:hover {
-            transform: scale(1.03);
+            border-radius: 0;
+            box-shadow: none;
+            margin: 0;
+            max-width: 100%;
         }
 
         @media (max-width: 600px) {
@@ -146,20 +143,42 @@
 <div class="topbar">Imagin</div>
 <div class="divider"></div>
 <div class="navbar">
-    <a href="/home">Home</a>
-    <a href="/gallery">Gallery</a>
-    <a href="/about">About</a>
+    <a href="https://cults3d.com/en/users/Imagin_ar/3d-models" target="_blank" rel="noopener">Cults3D</a>
+    <a href="https://www.thingiverse.com/imagin_ar/designs" target="_blank" rel="noopener">Thingiverse</a>
+    <a href="https://www.myminifactory.com/users/Imagin_ar" target="_blank" rel="noopener">Myminifactory</a>
 </div>
 <div class="banner">
-    <img class="banner-img" src="/assets/images/imaginar_banner.jpg" alt="Banner">
+    <img class="banner-img" id="mainBanner" src="/assets/images/imaginar_banner.jpg" alt="Banner">
 </div>
-<div class="image-grid">
-    <img src="/assets/images/bio-photo.jpg" alt="Sample 1">
-    <img src="/assets/images/bio-photo.jpg" alt="Sample 2">
-    <img src="/assets/images/bio-photo.jpg" alt="Sample 3">
-    <img src="/assets/images/bio-photo.jpg" alt="Sample 4">
-    <!-- Add more images to assets/images/ and update here for a varied grid -->
+<div class="image-grid" id="mainGrid" style="display: flex; margin: 0 auto;">
+    <img id="img3" src="https://fbi.cults3d.com/uploaders/17680399/illustration-file/c2970213-af9a-4494-b5e7-84a461eb3e3a/lkjlkljkl.png" alt="Grid Image 3">
+    <img id="img4" src="https://cdn.thingiverse.com/assets/eb/8d/72/1b/43/large_display_IMG_20201108_105138040.jpg" alt="Grid Image 4">
 </div>
+<script>
+function resizeGridToBanner() {
+    const banner = document.getElementById('mainBanner');
+    const grid = document.getElementById('mainGrid');
+    const img3 = document.getElementById('img3');
+    const img4 = document.getElementById('img4');
+    if (banner && grid && img3 && img4) {
+        const setWidth = () => {
+            const bannerWidth = banner.clientWidth;
+            grid.style.width = bannerWidth + 'px';
+            grid.style.margin = '0 auto';
+            img3.style.width = (bannerWidth / 2) + 'px';
+            img4.style.width = (bannerWidth / 2) + 'px';
+            img3.style.height = 'auto';
+            img4.style.height = 'auto';
+        };
+        if (banner.complete) {
+            setWidth();
+        } else {
+            banner.onload = setWidth;
+        }
+        window.addEventListener('resize', setWidth);
+    }
+}
+resizeGridToBanner();
+</script>
 </body>
 </html>
-

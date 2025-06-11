@@ -91,23 +91,22 @@
         }
 
         .image-grid {
-            display: flex;
-            margin: 0 auto; /* Remove top margin, handled by banner */
-            gap: 12px; /* Space between images */
-            padding: 0;
+            width: 100%;
+            max-width: 100%;
+            margin: 0 auto;
             background: #000;
         }
 
-        .image-grid img {
-            flex: 1 1 0;
-            width: 0;
+        .grid-item {
+            width: calc(50% - 6px);
+            margin-bottom: 12px;
+        }
+
+        .grid-item img {
+            width: 100%;
             height: auto;
             display: block;
             object-fit: cover;
-            border-radius: 0;
-            box-shadow: none;
-            margin: 0;
-            max-width: 100%;
         }
 
         @media (max-width: 600px) {
@@ -136,8 +135,15 @@
             .divider {
                 width: 60vw;
             }
+
+            .grid-item {
+                width: 100%;
+                margin-bottom: 12px;
+            }
         }
     </style>
+    <script src="https://unpkg.com/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"></script>
+    <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
 </head>
 <body>
 <div class="topbar">Imagin</div>
@@ -150,39 +156,61 @@
 <div class="banner">
     <img class="banner-img" id="mainBanner" src="/assets/images/imaginar_banner.jpg" alt="Banner">
 </div>
-<div class="image-grid" id="mainGrid" style="display: flex; margin: 0 auto;">
-    <img id="img3" src="https://cdn.thingiverse.com/assets/eb/8d/72/1b/43/large_display_IMG_20201108_105138040.jpg"
-         alt="Grid Image 3">
-    <img id="img4"
-         src="https://images.cults3d.com/5ry8DC-QEF2ZnKKzstn2xhQIL8g=/516x516/filters:no_upscale():format(webp)/https://fbi.cults3d.com/uploaders/17680399/illustration-file/bf2ecd99-28f6-49b5-a9f6-71c16df3d33c/bbbbb.jpg"
-         alt="Grid Image 4">
+<div class="image-grid" id="mainGrid">
+    <div class="grid-item">
+        <img src="https://cdn.thingiverse.com/assets/f6/90/02/36/af/large_display_heraldryClean.png" alt="Grid Image 0">
+    </div>
+    <div class="grid-item">
+        <img src="https://cdn.thingiverse.com/assets/22/4c/d8/f6/b8/large_display_IMG_20220408_121034_2.jpg" alt="Grid Image 1">
+    </div>
+    <div class="grid-item">
+        <img src="https://fbi.cults3d.com/uploaders/17680399/illustration-file/c2970213-af9a-4494-b5e7-84a461eb3e3a/lkjlkljkl.png" alt="Grid Image 2">
+    </div>
+    <div class="grid-item">
+        <img src="https://cdn.thingiverse.com/assets/eb/8d/72/1b/43/large_display_IMG_20201108_105138040.jpg" alt="Grid Image 3">
+    </div>
+    <div class="grid-item">
+        <img src="https://images.cults3d.com/5ry8DC-QEF2ZnKKzstn2xhQIL8g=/516x516/filters:no_upscale():format(webp)/https://fbi.cults3d.com/uploaders/17680399/illustration-file/bf2ecd99-28f6-49b5-a9f6-71c16df3d33c/bbbbb.jpg" alt="Grid Image 4">
+    </div>
+    <div class="grid-item">
+        <img src="https://images.cults3d.com/IcL6kRLS5PxKApdMm9lDXSCAUP4=/516x516/filters:no_upscale():format(webp)/https://fbi.cults3d.com/uploaders/17680399/illustration-file/b6c7804f-0627-4c47-bb5b-86364b28cce6/_90f516b6-d61d-4b1d-ad51-5e8a84536614.jpg" alt="Grid Image 5">
+    </div>
 </div>
 <script>
-    function resizeGridToBanner() {
-        const banner = document.getElementById('mainBanner');
-        const grid = document.getElementById('mainGrid');
-        const img3 = document.getElementById('img3');
-        const img4 = document.getElementById('img4');
-        if (banner && grid && img3 && img4) {
-            const setWidth = () => {
-                const bannerWidth = banner.clientWidth;
-                grid.style.width = bannerWidth + 'px';
-                grid.style.margin = '0 auto';
-                img3.style.width = (bannerWidth / 2) + 'px';
-                img4.style.width = (bannerWidth / 2) + 'px';
-                img3.style.height = 'auto';
-                img4.style.height = 'auto';
-            };
-            if (banner.complete) {
-                setWidth();
-            } else {
-                banner.onload = setWidth;
-            }
-            window.addEventListener('resize', setWidth);
-        }
-    }
+    document.addEventListener('DOMContentLoaded', function() {
+        const grid = document.querySelector('.image-grid');
+        const msnry = new Masonry(grid, {
+            itemSelector: '.grid-item',
+            columnWidth: '.grid-item',
+            percentPosition: true,
+            gutter: 12
+        });
 
-    resizeGridToBanner();
+        // Update Masonry layout after images are loaded
+        imagesLoaded(grid).on('progress', function() {
+            msnry.layout();
+        });
+
+        function resizeGridToBanner() {
+            const banner = document.getElementById('mainBanner');
+            const grid = document.getElementById('mainGrid');
+            if (banner && grid) {
+                const setWidth = () => {
+                    const bannerWidth = banner.clientWidth;
+                    grid.style.maxWidth = bannerWidth + 'px';
+                    grid.style.margin = '0 auto';
+                };
+                if (banner.complete) {
+                    setWidth();
+                } else {
+                    banner.onload = setWidth;
+                }
+                window.addEventListener('resize', setWidth);
+            }
+        }
+
+        resizeGridToBanner();
+    });
 </script>
 </body>
 </html>

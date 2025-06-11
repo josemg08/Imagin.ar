@@ -95,11 +95,15 @@
             max-width: 100%;
             margin: 0 auto;
             background: #000;
+            padding: 0 4px; /* Reduced padding */
+            margin-left: 33px; /* Adjust this value to control the left margin of the entire grid */
+            box-sizing: border-box;
         }
 
         .grid-item {
-            width: calc(50% - 6px);
-            margin-bottom: 12px;
+            box-sizing: border-box;
+            width: 23%; /* Slightly increased to fill the reduced margin space */
+            margin: 0 0 2px 0.05%; /* Reduced margins between items */
         }
 
         .grid-item img {
@@ -120,7 +124,12 @@
             }
 
             .image-grid {
-                padding: 0 2vw 24px 2vw;
+                padding: 0 6px;
+            }
+
+            .grid-item {
+                width: 46%; /* Slightly smaller for mobile */
+                margin: 0 2% 12px 2%;
             }
 
             .image-grid img {
@@ -134,11 +143,6 @@
 
             .divider {
                 width: 60vw;
-            }
-
-            .grid-item {
-                width: 100%;
-                margin-bottom: 12px;
             }
         }
     </style>
@@ -191,25 +195,10 @@
             msnry.layout();
         });
 
-        function resizeGridToBanner() {
-            const banner = document.getElementById('mainBanner');
-            const grid = document.getElementById('mainGrid');
-            if (banner && grid) {
-                const setWidth = () => {
-                    const bannerWidth = banner.clientWidth;
-                    grid.style.maxWidth = bannerWidth + 'px';
-                    grid.style.margin = '0 auto';
-                };
-                if (banner.complete) {
-                    setWidth();
-                } else {
-                    banner.onload = setWidth;
-                }
-                window.addEventListener('resize', setWidth);
-            }
-        }
-
-        resizeGridToBanner();
+        // Remove the banner width constraint
+        window.addEventListener('resize', function() {
+            msnry.layout();
+        });
     });
 </script>
 </body>

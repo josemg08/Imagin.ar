@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="banner.png" alt="Imagin.ar Banner" width="100%">
+  <img src="https://github.com/josemg08/Imagin.ar/blob/main/assets/images/imaginar_banner.jpg" alt="Imagin.ar Banner" width="100%">
 </div>
 
 # Imagin.ar

@@ -4,171 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Imagin.Ar</title>
+    <link rel="preload" href="/assets/fonts/Pacifica-Condensed-Regular.ttf" as="font" type="font/ttf" crossorigin>
     <link rel="icon" type="image/png" href="/assets/images/imaginar_favicon.png">
-    <style>
-        @font-face {
-            font-family: 'Pacifica Condensed';
-            src: url('/assets/fonts/Pacifica Condensed Regular.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-        }
-
-        body {
-            margin: 0;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            background: #000;
-            color: #fff;
-        }
-
-        .topbar {
-            width: 100%;
-            background: #000;
-            padding: 0.5em 0 0.2em 0;
-            text-align: center;
-            font-size: 2.7rem;
-            font-weight: bold;
-            letter-spacing: 2px;
-            z-index: 10;
-            position: relative;
-            font-family: 'Pacifica Condensed', 'Helvetica Neue', Arial, sans-serif;
-        }
-
-        .divider {
-            width: 33vw;
-            max-width: 340px;
-            height: 2px;
-            background: #444;
-            margin: 0.5em auto 0.5em auto;
-            border-radius: 2px;
-        }
-
-        .navbar {
-            width: 100%;
-            background: #000;
-            display: flex;
-            justify-content: center;
-            gap: 2.5em;
-            padding: 0.7em 0 0.7em 0;
-            z-index: 9;
-            position: relative;
-        }
-
-        .navbar a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 1.1em;
-            font-weight: bold;
-            letter-spacing: 1px;
-            transition: color 0.2s;
-            font-family: 'Pacifica Condensed', 'Helvetica Neue', Arial, sans-serif;
-            text-transform: none;
-        }
-
-        .navbar a:hover {
-            color: #0080ff;
-        }
-
-        .banner {
-            /* Remove width: 100vw; */
-            background: #000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            position: relative;
-            margin: 0;
-            padding: 0;
-            margin-bottom: 12px; /* Add space below the banner */
-        }
-
-        .banner-img {
-            display: block;
-            max-width: 100%;
-            height: auto;
-            max-height: 90vh;
-            min-height: 400px;
-            object-fit: contain;
-            background: #000;
-            margin: 0 auto;
-        }
-
-        .image-grid {
-            width: 100%;
-            max-width: 100%;
-            margin: 0 auto;
-            background: #000;
-            padding: 0 4px; /* Reduced padding */
-            margin-left: 33px; /* Adjust this value to control the left margin of the entire grid */
-            box-sizing: border-box;
-        }
-
-        .grid-item {
-            box-sizing: border-box;
-            width: 15%; /* Default small size for edge items */
-            margin: 0 0 2px 0.05%;
-            transition: all 0.3s ease;
-            border-radius: 12px;
-            overflow: hidden;
-        }
-
-        /* Make middle items of each row larger */
-        .grid-item:nth-child(4n+2),
-        .grid-item:nth-child(4n+3) {
-            width: 31%; /* Larger size for middle items */
-        }
-
-        /* Keep edge items smaller */
-        .grid-item:nth-child(4n+1),
-        .grid-item:nth-child(4n+4) {
-            width: 15%;
-        }
-
-        /* Add top margin between rows */
-        .grid-item:nth-child(n+5) {
-            margin-top: 10px;
-        }
-
-        .grid-item img {
-            width: 100%;
-            height: auto;
-            display: block;
-            object-fit: cover;
-            border-radius: 12px;
-        }
-
-        @media (max-width: 600px) {
-            .topbar {
-                font-size: 1.3rem;
-            }
-
-            .navbar {
-                gap: 1em;
-                font-size: 0.9em;
-            }
-
-            .image-grid {
-                padding: 0 6px;
-            }
-
-            .grid-item {
-                width: 46%; /* Slightly smaller for mobile */
-                margin: 0 2% 12px 2%;
-            }
-
-            .image-grid img {
-                height: 180px;
-            }
-
-            .banner-img {
-                max-height: 40vh;
-                min-height: 180px;
-            }
-
-            .divider {
-                width: 60vw;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="/assets/css/styles.css">
     <script src="https://unpkg.com/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"></script>
     <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
 </head>
@@ -188,61 +26,80 @@
         <img src="https://cdn.thingiverse.com/assets/f6/90/02/36/af/large_display_heraldryClean.png" alt="Grid Image 0">
     </div>
     <div class="grid-item">
-        <img src="https://cdn.thingiverse.com/assets/22/4c/d8/f6/b8/large_display_IMG_20220408_121034_2.jpg" alt="Grid Image 1">
+        <img src="https://cdn.thingiverse.com/assets/22/4c/d8/f6/b8/large_display_IMG_20220408_121034_2.jpg"
+             alt="Grid Image 1">
     </div>
     <div class="grid-item">
-        <img src="https://fbi.cults3d.com/uploaders/17680399/illustration-file/c2970213-af9a-4494-b5e7-84a461eb3e3a/lkjlkljkl.png" alt="Grid Image 2">
+        <img src="https://fbi.cults3d.com/uploaders/17680399/illustration-file/c2970213-af9a-4494-b5e7-84a461eb3e3a/lkjlkljkl.png"
+             alt="Grid Image 2">
     </div>
     <div class="grid-item">
-        <img src="https://cdn.thingiverse.com/assets/eb/8d/72/1b/43/large_display_IMG_20201108_105138040.jpg" alt="Grid Image 3">
+        <img src="https://cdn.thingiverse.com/assets/eb/8d/72/1b/43/large_display_IMG_20201108_105138040.jpg"
+             alt="Grid Image 3">
     </div>
     <div class="grid-item">
-        <img src="https://images.cults3d.com/5ry8DC-QEF2ZnKKzstn2xhQIL8g=/516x516/filters:no_upscale():format(webp)/https://fbi.cults3d.com/uploaders/17680399/illustration-file/bf2ecd99-28f6-49b5-a9f6-71c16df3d33c/bbbbb.jpg" alt="Grid Image 4">
+        <img src="https://images.cults3d.com/5ry8DC-QEF2ZnKKzstn2xhQIL8g=/516x516/filters:no_upscale():format(webp)/https://fbi.cults3d.com/uploaders/17680399/illustration-file/bf2ecd99-28f6-49b5-a9f6-71c16df3d33c/bbbbb.jpg"
+             alt="Grid Image 4">
     </div>
     <div class="grid-item">
-        <img src="https://images.cults3d.com/sMm7wjd4o3VydlWo2lp2QuSHrT0=/516x516/filters:no_upscale():format(webp)/https://fbi.cults3d.com/uploaders/17680399/illustration-file/36003819-f593-45b2-86d7-d8fdb09790e8/IMG_20240102_144654396~3.jpg" alt="Grid Image 6">
+        <img src="https://images.cults3d.com/sMm7wjd4o3VydlWo2lp2QuSHrT0=/516x516/filters:no_upscale():format(webp)/https://fbi.cults3d.com/uploaders/17680399/illustration-file/36003819-f593-45b2-86d7-d8fdb09790e8/IMG_20240102_144654396~3.jpg"
+             alt="Grid Image 6">
     </div>
     <div class="grid-item">
-        <img src="https://videos.cults3d.com/mdZhgyPsicjMak6p6WUMeP_PKQE=/516x516/filters:no_upscale():format(webp)/https://fbi.cults3d.com/uploaders/17680399/illustration-file/892d1ea5-bb2d-4a48-a3cb-1d6b9d74edef/ezgif-4-3e07370651.gif" alt="Grid Image 7">
+        <img src="https://videos.cults3d.com/mdZhgyPsicjMak6p6WUMeP_PKQE=/516x516/filters:no_upscale():format(webp)/https://fbi.cults3d.com/uploaders/17680399/illustration-file/892d1ea5-bb2d-4a48-a3cb-1d6b9d74edef/ezgif-4-3e07370651.gif"
+             alt="Grid Image 7">
     </div>
     <div class="grid-item">
-        <img src="https://videos.cults3d.com/o7sLnw7QzvAHPwOWkrXND_jF2oY=/516x516/filters:no_upscale():format(webp)/https://fbi.cults3d.com/uploaders/17680399/illustration-file/2c6171a0-699c-4765-b4de-754a824bfa27/ezgif-2-4e8f1fd4ce.gif" alt="Grid Image 8">
+        <img src="https://videos.cults3d.com/o7sLnw7QzvAHPwOWkrXND_jF2oY=/516x516/filters:no_upscale():format(webp)/https://fbi.cults3d.com/uploaders/17680399/illustration-file/2c6171a0-699c-4765-b4de-754a824bfa27/ezgif-2-4e8f1fd4ce.gif"
+             alt="Grid Image 8">
     </div>
     <div class="grid-item">
-        <img src="https://dl2.myminifactory.com/object-assets/62b967f5dbf10/images/720X720-bowlgroup.jpg" alt="Grid Image 9">
+        <img src="https://dl2.myminifactory.com/object-assets/62b967f5dbf10/images/720X720-bowlgroup.jpg"
+             alt="Grid Image 9">
     </div>
     <div class="grid-item">
-        <img src="https://dl2.myminifactory.com/object-assets/62b967f5dbf10/images/720X720-bowsimage.jpg" alt="Grid Image 10">
+        <img src="https://dl2.myminifactory.com/object-assets/62b967f5dbf10/images/720X720-bowsimage.jpg"
+             alt="Grid Image 10">
     </div>
     <div class="grid-item">
-        <img src="https://cdn.thingiverse.com/assets/74/c2/bd/a6/a2/large_display_IMG_20220628_021205.jpg" alt="Grid Image 11">
+        <img src="https://cdn.thingiverse.com/assets/74/c2/bd/a6/a2/large_display_IMG_20220628_021205.jpg"
+             alt="Grid Image 11">
     </div>
     <div class="grid-item">
-        <img src="https://cdn.thingiverse.com/assets/64/8d/0e/23/5f/large_display_WhatsApp_Image_2022-01-02_at_19.02.05.jpeg" alt="Grid Image 12">
+        <img src="https://cdn.thingiverse.com/assets/64/8d/0e/23/5f/large_display_WhatsApp_Image_2022-01-02_at_19.02.05.jpeg"
+             alt="Grid Image 12">
     </div>
     <div class="grid-item">
-        <img src="https://cdn.thingiverse.com/assets/95/5e/e2/87/8d/large_display_WhatsApp_Image_2021-12-29_at_08.04.30.jpeg" alt="Grid Image 13">
+        <img src="https://cdn.thingiverse.com/assets/95/5e/e2/87/8d/large_display_WhatsApp_Image_2021-12-29_at_08.04.30.jpeg"
+             alt="Grid Image 13">
     </div>
     <div class="grid-item">
-        <img src="https://cdn.thingiverse.com/assets/37/bf/13/76/bc/large_display_IMG_20201212_023320740_2.jpg" alt="Grid Image 14">
+        <img src="https://cdn.thingiverse.com/assets/37/bf/13/76/bc/large_display_IMG_20201212_023320740_2.jpg"
+             alt="Grid Image 14">
     </div>
     <div class="grid-item">
-        <img src="https://dl2.myminifactory.com/object-assets/61f9577fe0378/images/720X720-img-20220121-121211.jpg" alt="Grid Image 15">
+        <img src="https://dl2.myminifactory.com/object-assets/61f9577fe0378/images/720X720-img-20220121-121211.jpg"
+             alt="Grid Image 15">
     </div>
     <div class="grid-item">
-        <img src="https://dl2.myminifactory.com/object-assets/61b4ba8520f66/images/720X720-img-20201109-123817158-hdr.jpg" alt="Grid Image 16">
+        <img src="https://dl2.myminifactory.com/object-assets/61b4ba8520f66/images/720X720-img-20201109-123817158-hdr.jpg"
+             alt="Grid Image 16">
     </div>
     <div class="grid-item">
-        <img src="https://dl2.myminifactory.com/object-assets/61b7bf2edf023/images/720X720-gajalaka.jpg" alt="Grid Image 17">
+        <img src="https://dl2.myminifactory.com/object-assets/61b7bf2edf023/images/720X720-gajalaka.jpg"
+             alt="Grid Image 17">
     </div>
     <div class="grid-item">
-        <img src="https://dl2.myminifactory.com/object-assets/61b7bf2edf023/images/720X720-img-20211209-195854.jpg" alt="Grid Image 18">
+        <img src="https://dl2.myminifactory.com/object-assets/61b7bf2edf023/images/720X720-img-20211209-195854.jpg"
+             alt="Grid Image 18">
     </div>
     <div class="grid-item">
-        <img src="https://images.cults3d.com/IHvx6gtzpJgY7NvYUZpbmyqymFg=/516x516/filters:no_upscale():format(webp)/https://fbi.cults3d.com/uploaders/17680399/illustration-file/63413815-9510-4123-8bc5-71a50f74c801/IMG_20220201_114726_2.jpg" alt="Grid Image 19">
+        <img src="https://images.cults3d.com/IHvx6gtzpJgY7NvYUZpbmyqymFg=/516x516/filters:no_upscale():format(webp)/https://fbi.cults3d.com/uploaders/17680399/illustration-file/63413815-9510-4123-8bc5-71a50f74c801/IMG_20220201_114726_2.jpg"
+             alt="Grid Image 19">
     </div>
     <div class="grid-item">
-        <img src="https://images.cults3d.com/8wmH88eRR1R7EMpIQ8TM_GoUPA8=/516x516/filters:no_upscale():format(webp)/https://fbi.cults3d.com/uploaders/17680399/illustration-file/ef98e9e0-2573-4fe6-bb54-043cc7fa5231/DragonBoxV6Small.png" alt="Grid Image 21">
+        <img src="https://images.cults3d.com/8wmH88eRR1R7EMpIQ8TM_GoUPA8=/516x516/filters:no_upscale():format(webp)/https://fbi.cults3d.com/uploaders/17680399/illustration-file/ef98e9e0-2573-4fe6-bb54-043cc7fa5231/DragonBoxV6Small.png"
+             alt="Grid Image 21">
     </div>
     <div class="grid-item">
         <img src="/assets/images/IMG_20201108_231909756.jpg" alt="Grid Image 22">

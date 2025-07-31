@@ -4,7 +4,7 @@ const BASE_BACKGROUND_COLOR = '#000';
 const GRID_LINE_COLOR_R = 50;
 const GRID_LINE_COLOR_G = 50;
 const GRID_LINE_COLOR_B = 50;
-const GRID_LINE_COLOR_A = 0.3 * 125;
+const GRID_LINE_COLOR_A = 0.3 * 200;
 
 const GRID_SPACING = 4;
 const LINE_WEIGHT = 1;

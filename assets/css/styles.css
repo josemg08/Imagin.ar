@@ -9,13 +9,13 @@
 body {
     margin: 0;
     font-family: 'Helvetica Neue', Arial, sans-serif;
-    background: #000;
+    background: transparent;
     color: #fff;
 }
 
 .topbar {
     width: 100%;
-    background: #000;
+    background: transparent;
     padding: 0.5em 0 0.2em 0;
     text-align: center;
     font-size: 2.7rem;
@@ -37,7 +37,7 @@ body {
 
 .navbar {
     width: 100%;
-    background: #000;
+    background: transparent;
     display: flex;
     justify-content: center;
     gap: 2.5em;
@@ -63,7 +63,7 @@ body {
 
 .banner {
     /* Remove width: 100vw; */
-    background: #000;
+    background: transparent;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -81,7 +81,7 @@ body {
     max-height: 90vh;
     min-height: 400px;
     object-fit: contain;
-    background: #000;
+    background: transparent;
     margin: 0 auto;
 }
 
@@ -89,7 +89,7 @@ body {
     width: 100%;
     max-width: 100%;
     margin: 0 auto;
-    background: #000;
+    background: transparent;
     padding: 0 4px; /* Reduced padding */
     margin-left: 33px; /* Adjust this value to control the left margin of the entire grid */
     box-sizing: border-box;
